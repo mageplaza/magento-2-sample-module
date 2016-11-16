@@ -1,6 +1,6 @@
 <?php
 /**
- * Mageplaza_HelloWorld extension
+ *                     Mageplaza_HelloWorld extension
  *                     NOTICE OF LICENSE
  * 
  *                     This source file is subject to the Mageplaza License
