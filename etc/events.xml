@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="sample_handler">
-    	<observer name="sampleevent" instance="Mageplaza\Helloworld\Observers\Sampleevent" shared="false" />
+        <observer name="sampleevent" instance="Mageplaza\HelloWorld\Observers\Sampleevent" shared="false"/>
 	</event>
 	<!-- events -->
 </config>

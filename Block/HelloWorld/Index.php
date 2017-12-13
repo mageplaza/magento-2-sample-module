@@ -2,8 +2,9 @@
 /**
  * Copyright © 2015 Mageplaza . All rights reserved.
  */
-namespace Mageplaza\Helloworld\Block\Helloworld;
-use Mageplaza\Helloworld\Block\BaseBlock;
+namespace Mageplaza\HelloWorld\Block\HelloWorld;
+
+use Mageplaza\HelloWorld\Block\BaseBlock;
 class Index extends BaseBlock
 {
 	public $hello='Hello World';

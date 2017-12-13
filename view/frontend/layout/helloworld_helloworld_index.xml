@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
      <body>		
-        <referenceContainer name="content">			
-			<block class="Mageplaza\Helloworld\Block\Helloworld\Index" name="helloworld_index" template="helloworld/index.phtml">
+        <referenceContainer name="content">
+            <block class="Mageplaza\HelloWorld\Block\HelloWorld\Index" name="helloworld_index"
+                   template="helloworld/index.phtml">
 			</block>
         </referenceContainer>      
     </body>

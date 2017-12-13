@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Block\Adminhtml\Post\Edit;
+namespace Mageplaza\HelloWorld\Block\Adminhtml\Post\Edit;
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**

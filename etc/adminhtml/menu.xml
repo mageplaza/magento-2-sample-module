@@ -6,7 +6,9 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
     <menu>
-        <add id="Mageplaza_Helloworld::mageplaza_post_index" title="Hello World" module="Mageplaza_Helloworld"  sortOrder="20" dependsOnModule="Mageplaza_Helloworld" action="helloworld/post/index" resource="Mageplaza_Helloworld::mageplaza_post_index"/>
+        <add id="Mageplaza_HelloWorld::mageplaza_post_index" title="Hello World" module="Mageplaza_HelloWorld"
+             sortOrder="20" dependsOnModule="Mageplaza_HelloWorld" action="helloworld/post/index"
+             resource="Mageplaza_HelloWorld::mageplaza_post_index"/>
 <!--AddMenu-->
     </menu>
 </config>

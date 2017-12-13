@@ -2,10 +2,10 @@
 /**
  * Copyright © 2015 Mageplazacommerce. All rights reserved.
  */
-namespace Mageplaza\Helloworld\Model;
+namespace Mageplaza\HelloWorld\Model;
 
 /**
- * Helloworld Config model
+ * HelloWorld Config model
  */
 class Config extends \Magento\Framework\DataObject
 {

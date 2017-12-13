@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Block\Adminhtml\Post\Edit\Tab;
+namespace Mageplaza\HelloWorld\Block\Adminhtml\Post\Edit\Tab;
 class Post extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
     /**

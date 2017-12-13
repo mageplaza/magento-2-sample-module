@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Controller\Adminhtml\Post;
+namespace Mageplaza\HelloWorld\Controller\Adminhtml\Post;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;

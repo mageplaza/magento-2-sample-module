@@ -2,7 +2,7 @@
 /**
  * Copyright © 2015 Mageplaza. All rights reserved.
  */
-namespace Mageplaza\Helloworld\Model\ResourceModel;
+namespace Mageplaza\HelloWorld\Model\ResourceModel;
 
 /**
  * Post resource

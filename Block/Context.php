@@ -3,7 +3,7 @@
  * Copyright © 2015 Mageplaza . All rights reserved.
  * 
  */
-namespace Mageplaza\Helloworld\Block;
+namespace Mageplaza\HelloWorld\Block;
 
 /**
  * Abstract product block context
@@ -12,7 +12,7 @@ namespace Mageplaza\Helloworld\Block;
 class Context extends \Magento\Framework\View\Element\Template\Context
 {
     /**
-     * @var \Mageplaza\Helloworld\Helper\Data
+	 * @var \Mageplaza\HelloWorld\Helper\Data
      */
     protected $_devToolHelper;
 
@@ -22,7 +22,7 @@ class Context extends \Magento\Framework\View\Element\Template\Context
     protected $registry;
 	
 	/**
-     * @var \Mageplaza\Helloworld\Model\Config
+	 * @var \Mageplaza\HelloWorld\Model\Config
      */
     protected $_config;
 	
@@ -64,42 +64,42 @@ class Context extends \Magento\Framework\View\Element\Template\Context
      * @param \Magento\Framework\View\Page\Config $pageConfig
      * @param \Magento\Framework\View\Element\Template\File\Resolver $resolver
      * @param \Magento\Framework\View\Element\Template\File\Validator $validator
-     * @param \Mageplaza\Helloworld\Helper\Data $devToolHelper
+	 * @param \Mageplaza\HelloWorld\Helper\Data $devToolHelper
      * @param \Magento\Framework\Registry $registry
-	 * @param \Mageplaza\Helloworld\Model\Config $config
+	 * @param \Mageplaza\HelloWorld\Model\Config $config
 	 * @param \Magento\Framework\ObjectManagerInterface
 	 * @param \Magento\Framework\UrlFactory
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
 		\Magento\Framework\App\RequestInterface $request,
-        \Magento\Framework\View\LayoutInterface $layout,
-        \Magento\Framework\Event\ManagerInterface $eventManager,
-        \Magento\Framework\UrlInterface $urlBuilder,
-        \Magento\Framework\App\CacheInterface $cache,
-        \Magento\Framework\View\DesignInterface $design,
-        \Magento\Framework\Session\SessionManagerInterface $session,
-        \Magento\Framework\Session\SidResolverInterface $sidResolver,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Magento\Framework\View\Asset\Repository $assetRepo,
-        \Magento\Framework\View\ConfigInterface $viewConfig,
-        \Magento\Framework\App\Cache\StateInterface $cacheState,
-        \Psr\Log\LoggerInterface $logger,
-        \Magento\Framework\Escaper $escaper,
-        \Magento\Framework\Filter\FilterManager $filterManager,
-        \Magento\Framework\Stdlib\DateTime\TimezoneInterface $localeDate,
-        \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
-        \Magento\Framework\Filesystem $filesystem,
-        \Magento\Framework\View\FileSystem $viewFileSystem,
-        \Magento\Framework\View\TemplateEnginePool $enginePool,
-        \Magento\Framework\App\State $appState,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Framework\View\Page\Config $pageConfig,
-        \Magento\Framework\View\Element\Template\File\Resolver $resolver,
-        \Magento\Framework\View\Element\Template\File\Validator $validator,
-        \Mageplaza\Helloworld\Helper\Data $devToolHelper,
-        \Magento\Framework\Registry $registry,
-		\Mageplaza\Helloworld\Model\Config $config,
+		\Magento\Framework\View\LayoutInterface $layout,
+		\Magento\Framework\Event\ManagerInterface $eventManager,
+		\Magento\Framework\UrlInterface $urlBuilder,
+		\Magento\Framework\App\CacheInterface $cache,
+		\Magento\Framework\View\DesignInterface $design,
+		\Magento\Framework\Session\SessionManagerInterface $session,
+		\Magento\Framework\Session\SidResolverInterface $sidResolver,
+		\Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+		\Magento\Framework\View\Asset\Repository $assetRepo,
+		\Magento\Framework\View\ConfigInterface $viewConfig,
+		\Magento\Framework\App\Cache\StateInterface $cacheState,
+		\Psr\Log\LoggerInterface $logger,
+		\Magento\Framework\Escaper $escaper,
+		\Magento\Framework\Filter\FilterManager $filterManager,
+		\Magento\Framework\Stdlib\DateTime\TimezoneInterface $localeDate,
+		\Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
+		\Magento\Framework\Filesystem $filesystem,
+		\Magento\Framework\View\FileSystem $viewFileSystem,
+		\Magento\Framework\View\TemplateEnginePool $enginePool,
+		\Magento\Framework\App\State $appState,
+		\Magento\Store\Model\StoreManagerInterface $storeManager,
+		\Magento\Framework\View\Page\Config $pageConfig,
+		\Magento\Framework\View\Element\Template\File\Resolver $resolver,
+		\Magento\Framework\View\Element\Template\File\Validator $validator,
+		\Mageplaza\HelloWorld\Helper\Data $devToolHelper,
+		\Magento\Framework\Registry $registry,
+		\Mageplaza\HelloWorld\Model\Config $config,
 		\Magento\Framework\ObjectManagerInterface $objectManager,
 		\Magento\Framework\UrlFactory $urlFactory
     ) {
@@ -139,9 +139,9 @@ class Context extends \Magento\Framework\View\Element\Template\Context
 
     /**
 	 * Function for getting developer helper object
-     * @return \Mageplaza\Helloworld\Helper\Data
+	 * @return \Mageplaza\HelloWorld\Helper\Data
      */
-    public function getHelloworldHelper()
+	public function getHelloWorldHelper()
     {
         return $this->_devToolHelper;
     }
@@ -157,8 +157,8 @@ class Context extends \Magento\Framework\View\Element\Template\Context
     }
 	
 	/**
-	 * Function for getting helloworld model config object 
-     * @return \Mageplaza\Helloworld\Model\Config
+	 * Function for getting helloworld model config object
+	 * @return \Mageplaza\HelloWorld\Model\Config
      */
 	public function getConfig(){
 		return $this->_config;

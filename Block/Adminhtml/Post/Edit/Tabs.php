@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Block\Adminhtml\Post\Edit;
+namespace Mageplaza\HelloWorld\Block\Adminhtml\Post\Edit;
 
 class Tabs extends \Magento\Backend\Block\Widget\Tabs
 {

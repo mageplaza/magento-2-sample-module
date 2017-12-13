@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Controller\Adminhtml\Post;
+namespace Mageplaza\HelloWorld\Controller\Adminhtml\Post;
 
 class MassDelete extends \Magento\Backend\App\Action
 {
@@ -15,7 +15,7 @@ class MassDelete extends \Magento\Backend\App\Action
         } else {
             try {
                 foreach ($ids as $id) {
-                    $row = $this->_objectManager->get('Mageplaza\Helloworld\Model\Post')->load($id);
+					$row = $this->_objectManager->get('Mageplaza\HelloWorld\Model\Post')->load($id);
 					$row->delete();
 				}
                 $this->messageManager->addSuccess(

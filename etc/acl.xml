@@ -3,7 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Adminhtml::admin">
-                <resource id="Mageplaza_Helloworld::post" title="post" sortOrder="100"/>
+                <resource id="Mageplaza_HelloWorld::post" title="post" sortOrder="100"/>
  <!--AddMenuAcl-->
             </resource>
         </resources>

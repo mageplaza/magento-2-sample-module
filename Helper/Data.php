@@ -2,7 +2,7 @@
 /**
  * Copyright © 2015 Mageplaza . All rights reserved.
  */
-namespace Mageplaza\Helloworld\Helper;
+namespace Mageplaza\HelloWorld\Helper;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
 

@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Block\Adminhtml\Post;
+namespace Mageplaza\HelloWorld\Block\Adminhtml\Post;
 
 
 class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
@@ -55,12 +55,12 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        \Magento\Backend\Helper\Data $backendHelper,
-        \Magento\Store\Model\WebsiteFactory $websiteFactory,
-		\Mageplaza\Helloworld\Model\ResourceModel\Post\Collection $collectionFactory,
-        \Magento\Framework\Module\Manager $moduleManager,
-        array $data = []
+		\Magento\Backend\Block\Template\Context $context,
+		\Magento\Backend\Helper\Data $backendHelper,
+		\Magento\Store\Model\WebsiteFactory $websiteFactory,
+		\Mageplaza\HelloWorld\Model\ResourceModel\Post\Collection $collectionFactory,
+		\Magento\Framework\Module\Manager $moduleManager,
+		array $data = []
     ) {
 		
 		$this->_collectionFactory = $collectionFactory;

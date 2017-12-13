@@ -3,7 +3,7 @@
  *
  * Copyright © 2015 Mageplazacommerce. All rights reserved.
  */
-namespace Mageplaza\Helloworld\Controller\Helloworld;
+namespace Mageplaza\HelloWorld\Controller\HelloWorld;
 
 class Index extends \Magento\Framework\App\Action\Action
 {

@@ -3,7 +3,7 @@
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Mageplaza\Helloworld\Model\ResourceModel\Post;
+namespace Mageplaza\HelloWorld\Model\ResourceModel\Post;
 
 /**
  * Posts Collection
@@ -19,6 +19,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     public function _construct()
     {
-        $this->_init('Mageplaza\Helloworld\Model\Post', 'Mageplaza\Helloworld\Model\ResourceModel\Post');
+		$this->_init('Mageplaza\HelloWorld\Model\Post', 'Mageplaza\HelloWorld\Model\ResourceModel\Post');
     }
 }

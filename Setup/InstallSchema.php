@@ -3,7 +3,7 @@
  * Copyright © 2015 Mageplaza. All rights reserved.
  */
 
-namespace Mageplaza\Helloworld\Setup;
+namespace Mageplaza\HelloWorld\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -62,7 +62,7 @@ class InstallSchema implements InstallSchemaInterface
 		
 		
         ->setComment(
-            'Mageplaza Helloworld helloworld_post'
+			'Mageplaza HelloWorld helloworld_post'
         );
 		
 		$installer->getConnection()->createTable($table);

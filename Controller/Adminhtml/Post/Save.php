@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Controller\Adminhtml\Post;
+namespace Mageplaza\HelloWorld\Controller\Adminhtml\Post;
 use Magento\Framework\App\Filesystem\DirectoryList;
 class Save extends \Magento\Backend\App\Action
 {
@@ -11,7 +11,7 @@ class Save extends \Magento\Backend\App\Action
 		
         $data = $this->getRequest()->getParams();
         if ($data) {
-            $model = $this->_objectManager->create('Mageplaza\Helloworld\Model\Post');
+			$model = $this->_objectManager->create('Mageplaza\HelloWorld\Model\Post');
 		
             /* if(isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
 				try {

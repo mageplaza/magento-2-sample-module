@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Block\Adminhtml\Post;
+namespace Mageplaza\HelloWorld\Block\Adminhtml\Post;
 
 /**
  * CMS block edit form container
@@ -8,8 +8,8 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
     protected function _construct()
     {
-		$this->_objectId = 'id';
-        $this->_blockGroup = 'Mageplaza_Helloworld';
+		$this->_objectId   = 'id';
+		$this->_blockGroup = 'Mageplaza_HelloWorld';
         $this->_controller = 'adminhtml_post';
 
         parent::_construct();

@@ -3,7 +3,7 @@
  * Copyright © 2015 Mageplaza. All rights reserved.
  */
 
-namespace Mageplaza\Helloworld\Model;
+namespace Mageplaza\HelloWorld\Model;
 
 use Magento\Framework\Exception\PostException;
 
@@ -35,7 +35,7 @@ class Post extends \Magento\Framework\Model\AbstractModel
      */
     public function _construct()
     {
-        $this->_init('Mageplaza\Helloworld\Model\ResourceModel\Post');
+		$this->_init('Mageplaza\HelloWorld\Model\ResourceModel\Post');
     }
 
    

@@ -3,7 +3,7 @@
 
     <body>
         <referenceContainer name="content">
-            <block class="Mageplaza\Helloworld\Block\Adminhtml\Post" name="helloworld_post_container"/>
+            <block class="Mageplaza\HelloWorld\Block\Adminhtml\Post" name="helloworld_post_container"/>
         </referenceContainer>
     </body>
 </page>

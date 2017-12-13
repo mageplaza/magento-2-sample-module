@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\Helloworld\Controller\Adminhtml\Post;
+namespace Mageplaza\HelloWorld\Controller\Adminhtml\Post;
 
 class Edit extends \Magento\Backend\App\Action
 {
@@ -12,8 +12,8 @@ class Edit extends \Magento\Backend\App\Action
 		
 		// 1. Get ID and create model
         $id = $this->getRequest()->getParam('id');
-		
-        $model = $this->_objectManager->create('Mageplaza\Helloworld\Model\Post');
+
+		$model = $this->_objectManager->create('Mageplaza\HelloWorld\Model\Post');
 		
 		$registryObject = $this->_objectManager->get('Magento\Framework\Registry');
 		

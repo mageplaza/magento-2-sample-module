@@ -1,6 +1,6 @@
 <?php
 
-namespace Mageplaza\Helloworld\Observer;
+namespace Mageplaza\HelloWorld\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;

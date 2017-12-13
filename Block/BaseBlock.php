@@ -2,12 +2,12 @@
 /**
  * Copyright © 2015 Mageplaza . All rights reserved.
  */
-namespace Mageplaza\Helloworld\Block;
+namespace Mageplaza\HelloWorld\Block;
 use Magento\Framework\UrlFactory;
 class BaseBlock extends \Magento\Framework\View\Element\Template
 {
 	/**
-     * @var \Mageplaza\Helloworld\Helper\Data
+	 * @var \Mageplaza\HelloWorld\Helper\Data
      */
 	 protected $_devToolHelper;
 	 
@@ -17,20 +17,20 @@ class BaseBlock extends \Magento\Framework\View\Element\Template
 	 protected $_urlApp;
 	 
 	 /**
-     * @var \Mageplaza\Helloworld\Model\Config
+	  * @var \Mageplaza\HelloWorld\Model\Config
      */
     protected $_config;
 
     /**
-     * @param \Mageplaza\Helloworld\Block\Context $context
+	 * @param \Mageplaza\HelloWorld\Block\Context $context
 	 * @param \Magento\Framework\UrlFactory $urlFactory
      */
-    public function __construct( \Mageplaza\Helloworld\Block\Context $context
+	public function __construct(\Mageplaza\HelloWorld\Block\Context $context
 	)
     {
-        $this->_devToolHelper = $context->getHelloworldHelper();
-		$this->_config = $context->getConfig();
-        $this->_urlApp=$context->getUrlFactory()->create();
+		$this->_devToolHelper = $context->getHelloWorldHelper();
+		$this->_config        = $context->getConfig();
+        $this->_urlApp        =$context->getUrlFactory()->create();
 		parent::__construct($context);
 	
     }
@@ -72,10 +72,11 @@ class BaseBlock extends \Magento\Framework\View\Element\Template
 	}
 	
 	/**
-     * Function canShowHelloworld
+	 * Function canShowHelloWorld
 	 * @return bool
      */
-	public function canShowHelloworld(){
+	public function canShowHelloWorld()
+	{
 		$isEnabled=$this->getConfigValue('helloworld/module/is_enabled');
 		if($isEnabled)
 		{
