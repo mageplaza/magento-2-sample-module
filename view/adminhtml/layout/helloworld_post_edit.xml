@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+     <update handle="editor"/>
+    <body>
+	   <referenceContainer name="content">
+            <block class="Mageplaza\Helloworld\Block\Adminhtml\Post\Edit" name="helloworld_post_edit"/>
+        </referenceContainer>
+		 <referenceContainer name="left">
+            <block class="Mageplaza\Helloworld\Block\Adminhtml\Post\Edit\Tabs" name="helloworld_post_edit_tabs">
+				<block class="Mageplaza\Helloworld\Block\Adminhtml\Post\Edit\Tab\Post" name="helloworld_post_edit_tab_post"/>
+				 <action method="addTab">
+                    <argument name="name" xsi:type="string">post_section</argument>
+                    <argument name="block" xsi:type="string">helloworld_post_edit_tab_post</argument>
+                </action>
+				<!--CedAddTab-->
+			</block>
+        </referenceContainer>
+    </body>
+</page>

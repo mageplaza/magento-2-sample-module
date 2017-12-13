@@ -1,83 +1,42 @@
 <?php
-/**
- * Mageplaza_HelloWorld extension
- *                     NOTICE OF LICENSE
- * 
- *                     This source file is subject to the Mageplaza License
- *                     that is bundled with this package in the file LICENSE.txt.
- *                     It is also available through the world-wide-web at this URL:
- *                     https://www.mageplaza.com/LICENSE.txt
- * 
- *                     @category  Mageplaza
- *                     @package   Mageplaza_HelloWorld
- *                     @copyright Copyright (c) 2016
- *                     @license   https://www.mageplaza.com/LICENSE.txt
- */
-namespace Mageplaza\HelloWorld\Controller\Adminhtml\Post;
+namespace Mageplaza\Helloworld\Controller\Adminhtml\Post;
 
-class Index extends \Magento\Backend\App\Action
+use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+
+
+class Index extends Action
 {
     /**
-     * Page result factory
-     * 
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    protected $_resultPageFactory;
+    protected $resultPageFactory;
 
     /**
-     * Page factory
-     * 
      * @var \Magento\Backend\Model\View\Result\Page
      */
-    protected $_resultPage;
+    protected $resultPage;
 
     /**
-     * constructor
-     * 
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
-     * @param \Magento\Backend\App\Action\Context $context
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        \Magento\Backend\App\Action\Context $context
+        Context $context,
+        PageFactory $resultPageFactory
     )
     {
-        $this->_resultPageFactory = $resultPageFactory;
         parent::__construct($context);
+        $this->resultPageFactory = $resultPageFactory;
     }
 
-    /**
-     * execute the action
-     *
-     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Framework\View\Result\Page
-     */
     public function execute()
     {
-        $this->_setPageData();
-        return $this->getResultPage();
-    }
-    /**
-     * instantiate result page object
-     *
-     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Framework\View\Result\Page
-     */
-    public function getResultPage()
-    {
-        if (is_null($this->_resultPage)) {
-            $this->_resultPage = $this->_resultPageFactory->create();
-        }
-        return $this->_resultPage;
-    }
-    /**
-     * set page data
-     *
-     * @return $this
-     */
-    protected function _setPageData()
-    {
-        $resultPage = $this->getResultPage();
-        //$resultPage->setActiveMenu('Mageplaza_HelloWorld::post');
-        $resultPage->getConfig()->getTitle()->prepend((__('Posts')));
-        return $this;
+		
+		$this->resultPage = $this->resultPageFactory->create();  
+		$this->resultPage->setActiveMenu('Mageplaza_Post::post');
+		$this->resultPage ->getConfig()->getTitle()->set((__('Post')));
+		return $this->resultPage;
     }
 }

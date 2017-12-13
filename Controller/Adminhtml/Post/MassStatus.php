@@ -1,22 +1,23 @@
 <?php
-namespace Mageplaza\Helloworld\Controller\Adminhtml\Post;
+namespace Mageplaza\Post\Controller\Adminhtml\Post;
 
-class MassDelete extends \Magento\Backend\App\Action
+class MassStatus extends \Magento\Backend\App\Action
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
      */
     public function execute()
     {
-		
 		 $ids = $this->getRequest()->getParam('id');
+		 $status = $this->getRequest()->getParam('status');
 		if (!is_array($ids) || empty($ids)) {
             $this->messageManager->addError(__('Please select product(s).'));
         } else {
             try {
                 foreach ($ids as $id) {
-                    $row = $this->_objectManager->get('Mageplaza\Helloworld\Model\Post')->load($id);
-					$row->delete();
+                    $row = $this->_objectManager->get('Mageplaza\Firstgrid\Model\Post')->load($id);
+					$row->setData('status',$status)
+							->save();
 				}
                 $this->messageManager->addSuccess(
                     __('A total of %1 record(s) have been deleted.', count($ids))

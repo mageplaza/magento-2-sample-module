@@ -1,154 +1,67 @@
 <?php
-/**
- * Mageplaza_HelloWorld extension
- *                     NOTICE OF LICENSE
- * 
- *                     This source file is subject to the Mageplaza License
- *                     that is bundled with this package in the file LICENSE.txt.
- *                     It is also available through the world-wide-web at this URL:
- *                     https://www.mageplaza.com/LICENSE.txt
- * 
- *                     @category  Mageplaza
- *                     @package   Mageplaza_HelloWorld
- *                     @copyright Copyright (c) 2016
- *                     @license   https://www.mageplaza.com/LICENSE.txt
- */
-namespace Mageplaza\HelloWorld\Controller\Adminhtml\Post;
-
-class Save extends \Mageplaza\HelloWorld\Controller\Adminhtml\Post
+namespace Mageplaza\Helloworld\Controller\Adminhtml\Post;
+use Magento\Framework\App\Filesystem\DirectoryList;
+class Save extends \Magento\Backend\App\Action
 {
     /**
-     * Upload model
-     * 
-     * @var \Mageplaza\HelloWorld\Model\Upload
+     * @var \Magento\Framework\View\Result\PageFactory
      */
-    protected $_uploadModel;
-
-    /**
-     * File model
-     * 
-     * @var \Mageplaza\HelloWorld\Model\Post\File
-     */
-    protected $_fileModel;
-
-    /**
-     * Image model
-     * 
-     * @var \Mageplaza\HelloWorld\Model\Post\Image
-     */
-    protected $_imageModel;
-
-    /**
-     * Backend session
-     * 
-     * @var \Magento\Backend\Model\Session
-     */
-    protected $_backendSession;
-
-    /**
-     * constructor
-     * 
-     * @param \Mageplaza\HelloWorld\Model\Upload $uploadModel
-     * @param \Mageplaza\HelloWorld\Model\Post\File $fileModel
-     * @param \Mageplaza\HelloWorld\Model\Post\Image $imageModel
-     * @param \Magento\Backend\Model\Session $backendSession
-     * @param \Mageplaza\HelloWorld\Model\PostFactory $postFactory
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Backend\Model\View\Result\RedirectFactory $resultRedirectFactory
-     * @param \Magento\Backend\App\Action\Context $context
-     */
-    public function __construct(
-        \Mageplaza\HelloWorld\Model\Upload $uploadModel,
-        \Mageplaza\HelloWorld\Model\Post\File $fileModel,
-        \Mageplaza\HelloWorld\Model\Post\Image $imageModel,
-        \Magento\Backend\Model\Session $backendSession,
-        \Mageplaza\HelloWorld\Model\PostFactory $postFactory,
-        \Magento\Framework\Registry $registry,
-        \Magento\Backend\Model\View\Result\RedirectFactory $resultRedirectFactory,
-        \Magento\Backend\App\Action\Context $context
-    )
+	public function execute()
     {
-        $this->_uploadModel    = $uploadModel;
-        $this->_fileModel      = $fileModel;
-        $this->_imageModel     = $imageModel;
-        $this->_backendSession = $backendSession;
-        parent::__construct($postFactory, $registry, $resultRedirectFactory, $context);
-    }
-
-    /**
-     * run the action
-     *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     */
-    public function execute()
-    {
-        $data = $this->getRequest()->getPost('post');
-        $resultRedirect = $this->resultRedirectFactory->create();
+		
+        $data = $this->getRequest()->getParams();
         if ($data) {
-            $data = $this->_filterData($data);
-            $post = $this->_initPost();
-            $post->setData($data);
-            $featuredImage = $this->_uploadModel->uploadFileAndGetName('featured_image', $this->_imageModel->getBaseDir(), $data);
-            $post->setFeaturedImage($featuredImage);
-            $sampleUploadFile = $this->_uploadModel->uploadFileAndGetName('sample_upload_file', $this->_fileModel->getBaseDir(), $data);
-            $post->setSampleUploadFile($sampleUploadFile);
-            $this->_eventManager->dispatch(
-                'mageplaza_helloworld_post_prepare_save',
-                [
-                    'post' => $post,
-                    'request' => $this->getRequest()
-                ]
-            );
+            $model = $this->_objectManager->create('Mageplaza\Helloworld\Model\Post');
+		
+            /* if(isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
+				try {
+					    $uploader = $this->_objectManager->create('Magento\Core\Model\File\Uploader', array('fileId' => 'image'));
+						$uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
+						$uploader->setAllowRenameFiles(true);
+						$uploader->setFilesDispersion(true);
+						$mediaDirectory = $this->_objectManager->get('Magento\Framework\Filesystem')
+							->getDirectoryRead(DirectoryList::MEDIA);
+						$config = $this->_objectManager->get('Magento\Bannerslider\Model\Banner');
+						$result = $uploader->save($mediaDirectory->getAbsolutePath('bannerslider/images'));
+						unset($result['tmp_name']);
+						unset($result['path']);
+						$data['image'] = $result['file'];
+				} catch (Exception $e) {
+					$data['image'] = $_FILES['image']['name'];
+				}
+			}
+			else{
+				$data['image'] = $data['image']['value'];
+			} */
+			$id = $this->getRequest()->getParam('id');
+            if ($id) {
+                $model->load($id);
+            }
+			
+            $model->setData($data);
+			
             try {
-                $post->save();
-                $this->messageManager->addSuccess(__('The Post has been saved.'));
-                $this->_backendSession->setMageplazaHelloWorldPostData(false);
+                $model->save();
+                $this->messageManager->addSuccess(__('The Frist Grid Has been Saved.'));
+                $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
-                    $resultRedirect->setPath(
-                        'mageplaza_helloworld/*/edit',
-                        [
-                            'post_id' => $post->getId(),
-                            '_current' => true
-                        ]
-                    );
-                    return $resultRedirect;
+                    $this->_redirect('*/*/edit', array('id' => $model->getId(), '_current' => true));
+                    return;
                 }
-                $resultRedirect->setPath('mageplaza_helloworld/*/');
-                return $resultRedirect;
-            } catch (\Magento\Framework\Exception\LocalizedException $e) {
+                $this->_redirect('*/*/');
+                return;
+            } catch (\Magento\Framework\Model\Exception $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\RuntimeException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Something went wrong while saving the Post.'));
+                $this->messageManager->addException($e, __('Something went wrong while saving the banner.'));
             }
-            $this->_getSession()->setMageplazaHelloWorldPostData($data);
-            $resultRedirect->setPath(
-                'mageplaza_helloworld/*/edit',
-                [
-                    'post_id' => $post->getId(),
-                    '_current' => true
-                ]
-            );
-            return $resultRedirect;
-        }
-        $resultRedirect->setPath('mageplaza_helloworld/*/');
-        return $resultRedirect;
-    }
 
-    /**
-     * filter values
-     *
-     * @param array $data
-     * @return array
-     */
-    protected function _filterData($data)
-    {
-        if (isset($data['sample_multiselect'])) {
-            if (is_array($data['sample_multiselect'])) {
-                $data['sample_multiselect'] = implode(',', $data['sample_multiselect']);
-            }
+            $this->_getSession()->setFormData($data);
+            $this->_redirect('*/*/edit', array('banner_id' => $this->getRequest()->getParam('banner_id')));
+            return;
         }
-        return $data;
+        $this->_redirect('*/*/');
     }
 }
