@@ -99,6 +99,21 @@ class UpgradeSchema implements UpgradeSchemaInterface
 			}
 		}
 
+
+		if(version_compare($context->getVersion(), '1.2.0', '<')) {
+			$installer->getConnection()->addColumn(
+				$installer->getTable( 'mageplaza_helloworld_post' ),
+				'test',
+				[
+					'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+					'nullable' => true,
+					'length' => '12,4',
+					'comment' => 'test',
+					'after' => 'status'
+				]
+			);
+		}
+
 		$installer->endSetup();
 	}
 }
