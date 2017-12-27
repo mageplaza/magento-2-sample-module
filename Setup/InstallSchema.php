@@ -1,4 +1,5 @@
 <?php
+
 namespace Mageplaza\HelloWorld\Setup;
 
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
@@ -67,11 +68,11 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 					'Post Featured Image'
 				)
 				->addColumn(
-						'created_at',
-						\Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
-						null,
-						['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
-						'Created At'
+					'created_at',
+					\Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
+					null,
+					['nullable' => false, 'default' => \Magento\Framework\DB\Ddl\Table::TIMESTAMP_INIT],
+					'Created At'
 				)->addColumn(
 					'updated_at',
 					\Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
@@ -85,10 +86,10 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 				$installer->getTable('mageplaza_helloworld_post'),
 				$setup->getIdxName(
 					$installer->getTable('mageplaza_helloworld_post'),
-					['name','url_key','post_content','tags','featured_image'],
+					['name', 'url_key', 'post_content', 'tags', 'featured_image'],
 					\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 				),
-				['name','url_key','post_content','tags','featured_image'],
+				['name', 'url_key', 'post_content', 'tags', 'featured_image'],
 				\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 			);
 		}
