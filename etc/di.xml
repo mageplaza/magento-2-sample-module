@@ -17,4 +17,13 @@
     <type name="Mageplaza\HelloWorld\Controller\Index\Example">
         <plugin name="Mageplaza_HelloWorld_Plugin" type="Mageplaza\HelloWorld\Plugin\ExamplePlugin" sortOrder="10" disabled="false"  />
     </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="exampleSayHello" xsi:type="object">Mageplaza\HelloWorld\Console\Sayhello</item>
+            </argument>
+        </arguments>
+    </type>
+
 </config>
