@@ -1,0 +1,26 @@
+{
+    "name": "mageplaza/module-helloworld",
+    "description": "",
+
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "Mageplaza License",
+    "authors": [
+        {
+          "name": "Hi",
+          "email": "hi@mageplaza.com",
+          "homepage": "https://www.mageplaza.com",
+          "role": "Leader"
+        }
+    ],
+
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mageplaza\\HelloWorld\\": ""
+        }
+    }
+
+}

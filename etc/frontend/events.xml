@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="mageplaza_helloworld_display_text">
+        <observer name="mp_display_text" instance="Mageplaza\HelloWorld\Observer\ChangeDisplayText" />
+    </event>
+</config>
