@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+	<group id="default">
+		<job instance="Mageplaza\HelloWorld\Cron\Test" method="execute" name="mageplaza_helloworld_cron">
+			<schedule>* * * * *</schedule>
+		</job>
+	</group>
+</config>
